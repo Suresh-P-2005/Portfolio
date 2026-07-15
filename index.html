@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suresh P — AI/ML & Computer Vision Engineer</title>
+<meta name="description" content="Portfolio of Suresh P — AI/ML Engineer specializing in computer vision, deep learning, and real-time AI systems. Currently interning at HCL Technologies.">
+<meta name="keywords" content="Suresh P, AI Engineer, ML Engineer, Computer Vision, Deep Learning, PyTorch, TensorFlow, OpenCV, MediaPipe, YOLO">
+<meta property="og:title" content="Suresh P — AI/ML Engineer">
+<meta property="og:description" content="Building real-time AI systems from hybrid inference engines to production vision pipelines.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER: Add your favicon path here -->
+<link rel="icon" type="image/x-icon" href="YOUR_FAVICON_PATH_HERE.ico">
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">SP</div>
+    <div class="loader-ring"></div>
+    <div class="loader-ring loader-ring-2"></div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar-fill" id="loaderFill"></div>
+    </div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+    <div class="loader-label">Initializing AI Portfolio</div>
+  </div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ AMBIENT BLOBS ============ -->
+<div class="ambient-blob blob-1" aria-hidden="true"></div>
+<div class="ambient-blob blob-2" aria-hidden="true"></div>
+<div class="ambient-blob blob-3" aria-hidden="true"></div>
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-s">Suresh </span><span class="nav-logo-dot">. </span><span class="nav-logo-p">P</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-nav="about">About</a></li>
+    <li><a href="#skills" data-nav="skills">Skills</a></li>
+    <li><a href="#projects" data-nav="projects">Projects</a></li>
+    <li><a href="#experience" data-nav="experience">Experience</a></li>
+    <li><a href="#contact" data-nav="contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon sun">☀</span>
+      <span class="theme-icon moon">◐</span>
+    </button>
+    <a href="Suresh_Resume.pdf" target="_blank" class="nav-resume">Resume</a>
+    <a href="#contact" class="nav-cta">
+      <span>Hire Me</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#about" data-nav="about">About</a>
+  <a href="#skills" data-nav="skills">Skills</a>
+  <a href="#projects" data-nav="projects">Projects</a>
+  <a href="#experience" data-nav="experience">Experience</a>
+  <a href="#contact" data-nav="contact">Contact</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="hero">
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal-up">
+      <span class="hero-badge-dot"></span>
+      <span>Available · AI/ML Intern @ HCL Technologies</span>
+    </div>
+
+    <h1 class="hero-name reveal-up" style="--delay:0.1s">
+      <span class="hero-name-line">Building</span>
+      <span class="hero-name-gradient">Intelligent</span>
+      <span class="hero-name-line">Systems.</span>
+    </h1>
+
+    <div class="hero-role reveal-up" style="--delay:0.2s">
+      <span class="hero-role-prefix">&gt;_</span>
+      <span class="hero-role-text" id="typedRole"></span>
+      <span class="hero-cursor-blink">|</span>
+    </div>
+
+    <p class="hero-desc reveal-up" style="--delay:0.3s">
+      AI/ML engineer & CSE graduate building real-time perception systems — from hybrid inference engines to production-ready computer vision pipelines.
+    </p>
+
+    <div class="hero-actions reveal-up" style="--delay:0.4s">
+      <a href="#projects" class="btn btn-primary" id="heroViewProjects">
+        <span>View Projects</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="mailto:sureshreigns220@gmail.com" class="btn btn-ghost" id="heroContact">
+        <span>Get in Touch</span>
+      </a>
+      <a href="Suresh_Resume.pdf" target="_blank" class="btn btn-ghost" id="heroResume">
+        <span>Download Resume</span>
+      </a>
+    </div>
+
+    <div class="hero-stats reveal-up" style="--delay:0.5s">
+      <div class="hero-stat">
+        <span class="hero-stat-num">99.8%</span>
+        <span class="hero-stat-label">ISL Accuracy</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Internships</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">AI Projects</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">8.1</span>
+        <span class="hero-stat-label">CGPA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual reveal-up" style="--delay:0.3s">
+    <div class="hero-card-3d" id="heroCard3d">
+      <div class="holo-card">
+        <div class="holo-card-header">
+          <span class="holo-dot"></span>
+          <span class="holo-dot holo-dot-2"></span>
+          <span class="holo-dot holo-dot-3"></span>
+        </div>
+        <div class="holo-card-content">
+          <div class="holo-label">MODEL STATUS</div>
+          <div class="holo-value gradient-text">ONLINE</div>
+          <div class="holo-bars">
+            <div class="holo-bar-row">
+              <span>Computer Vision</span>
+              <div class="holo-bar-track"><div class="holo-bar-fill" style="width:94%"></div></div>
+              <span>94%</span>
+            </div>
+            <div class="holo-bar-row">
+              <span>Deep Learning</span>
+              <div class="holo-bar-track"><div class="holo-bar-fill" style="width:91%"></div></div>
+              <span>91%</span>
+            </div>
+            <div class="holo-bar-row">
+              <span>Python / APIs</span>
+              <div class="holo-bar-track"><div class="holo-bar-fill" style="width:95%"></div></div>
+              <span>95%</span>
+            </div>
+          </div>
+          <div class="holo-footer">
+            <span class="holo-badge">PyTorch</span>
+            <span class="holo-badge">OpenCV</span>
+            <span class="holo-badge">MediaPipe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section about" id="about">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal-up">
+        <span class="eyebrow-tag">About</span>
+      </div>
+      <h2 class="section-title reveal-up">The engineer <span class="gradient-text">behind the models</span></h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal-up">
+          <p>
+            I'm a <strong>Computer Science & Engineering</strong> undergraduate specializing in
+            <strong>computer vision, deep learning, and intelligent system design.</strong>
+            My work sits at the intersection of perception and production — taking a model from architecture and training all the way to a real-time, deployable pipeline.
+          </p>
+          <p>
+            Currently an <strong>AI/ML Intern at HCL Technologies</strong>, developing and evaluating machine learning models on real-world industry datasets. My research on Indian Sign Language recognition was published in a peer-reviewed journal.
+          </p>
+          <p>
+            I care deeply about systems that work <em>outside</em> the lab — hardware-free, CPU-friendly, and robust to the noise of the real world.
+          </p>
+          <div class="about-chips">
+            <span class="about-chip">📍 Chennai, Tamil Nadu</span>
+            <span class="about-chip">🎓 B.E. CSE · VV College</span>
+            <span class="about-chip">📝 Peer-Reviewed Journal</span>
+          </div>
+        </div>
+
+        <div class="about-stats reveal-up" style="--delay:0.15s">
+          <div class="stat-card glass-card">
+            <div class="stat-card-icon">🎯</div>
+            <div class="stat-card-num" data-count="99.8" data-suffix="%">0%</div>
+            <div class="stat-card-label">ISL Static Sign Accuracy</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-card-icon">💼</div>
+            <div class="stat-card-num" data-count="3">0</div>
+            <div class="stat-card-label">Internships Completed</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-card-icon">🧠</div>
+            <div class="stat-card-num" data-count="126">0</div>
+            <div class="stat-card-label">3D Landmarks / Frame</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-card-icon">⭐</div>
+            <div class="stat-card-num" data-count="8.1">0</div>
+            <div class="stat-card-label">CGPA out of 10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section skills" id="skills">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Skills</span></div>
+      <h2 class="section-title reveal-up">Technical <span class="gradient-text">capabilities</span></h2>
+      <p class="section-sub reveal-up">Proficiency built through real-world projects, internships & published research.</p>
+
+      <div class="skills-categories reveal-up" style="--delay:0.1s">
+
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">🤖</span>
+            <h3 class="skill-cat-title">AI / ML</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>TensorFlow / Keras</span><span class="skill-pct">92%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>PyTorch</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>BiLSTM / Sequence Models</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>Scikit-learn / Random Forest</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">👁</span>
+            <h3 class="skill-cat-title">Computer Vision</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>OpenCV</span><span class="skill-pct">94%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="94"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>MediaPipe / Skeletal Tracking</span><span class="skill-pct">93%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="93"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>YOLO Object Detection</span><span class="skill-pct">89%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="89"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>Real-Time Video Pipelines</span><span class="skill-pct">91%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="91"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon">⚡</span>
+            <h3 class="skill-cat-title">Backend & APIs</h3>
+          </div>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>Python</span><span class="skill-pct">95%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>FastAPI / Flask</span><span class="skill-pct">87%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="87"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>SQLite / MongoDB</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>React / HTML / CSS / JS</span><span class="skill-pct">82%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tools-section reveal-up" style="--delay:0.2s">
+        <h4 class="tools-label">Tools & Ecosystem</h4>
+        <div class="tools-chips">
+          <span class="tool-chip">Git</span>
+          <span class="tool-chip">VS Code</span>
+          <span class="tool-chip">LM Studio</span>
+          <span class="tool-chip">Web Speech API</span>
+          <span class="tool-chip">Firebase</span>
+          <span class="tool-chip">Flutter</span>
+          <span class="tool-chip">EasyOCR</span>
+          <span class="tool-chip">Matplotlib</span>
+          <span class="tool-chip">NumPy</span>
+          <span class="tool-chip">Pandas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section projects" id="projects">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Projects</span></div>
+      <h2 class="section-title reveal-up">Selected <span class="gradient-text">builds</span></h2>
+      <p class="section-sub reveal-up">Systems engineered end-to-end — model, pipeline, and deployment.</p>
+
+      <div class="projects-grid">
+
+        <article class="project-card glass-card tilt-card reveal-up" data-tilt>
+          <div class="project-card-glow"></div>
+          <div class="project-header">
+            <div class="project-badges">
+              <span class="project-badge badge-published">📄 Journal Published</span>
+            </div>
+            <span class="project-id">P.01</span>
+          </div>
+          <h3 class="project-title">Indian Sign Language Recognition & Translation</h3>
+          <p class="project-desc">
+            A real-time ISL recognition system published in the <strong>Journal of Ubiquitous Computing and Communication Technologies</strong>. Achieved <strong>99.8% static</strong> and <strong>92.5% dynamic gesture accuracy</strong> using a hybrid MediaPipe, CNN, and BiLSTM engine.
+          </p>
+          <ul class="project-points">
+            <li>Real-time CV pipeline extracting 126 3D skeletal coords/frame via MediaPipe + OpenCV</li>
+            <li>Offline Phi-3 LLM (LM Studio) integrated for grammar-aware sentence generation</li>
+            <li>Web Speech API pipeline delivering TTS across 11 languages</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-badge">Python</span>
+            <span class="stack-badge">OpenCV</span>
+            <span class="stack-badge">MediaPipe</span>
+            <span class="stack-badge">BiLSTM</span>
+            <span class="stack-badge">CNN</span>
+            <span class="stack-badge">Phi-3 LLM</span>
+          </div>
+          <div class="project-metric">
+            <div class="project-metric-bar"><div class="project-metric-fill" data-width="99.8"></div></div>
+            <span class="project-metric-val">99.8% accuracy</span>
+          </div>
+          <div class="project-links">
+            <a href="journal.pdf" target="_blank" rel="noopener" class="project-link paper-link">
+              Read Paper
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2v10h8V6L8 2H4zM8 2v4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://github.com/Suresh-P-2005/ISL" target="_blank" rel="noopener" class="project-link">
+              GitHub Repo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="YOUR_ISL_DEMO_LINK_HERE" target="_blank" rel="noopener" class="project-link demo-link">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-up" data-tilt style="--delay:0.1s">
+          <div class="project-card-glow"></div>
+          <div class="project-header">
+            <div class="project-badges">
+              <span class="project-badge badge-personal">🔬 Computer Vision</span>
+            </div>
+            <span class="project-id">P.02</span>
+          </div>
+          <h3 class="project-title">Automatic Number Plate Recognition (ANPR)</h3>
+          <p class="project-desc">
+            End-to-end computer vision pipeline detecting vehicle license plates using YOLOv5 and extracting registration numbers with EasyOCR.
+          </p>
+          <ul class="project-points">
+            <li>Built scalable inference pipeline supporting still-image and video-based detection</li>
+            <li>Integrated real-time visualization with plate localization, OCR and overlay</li>
+            <li>Supports both CPU inference and optional GPU acceleration</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-badge">Python</span>
+            <span class="stack-badge">YOLOv5</span>
+            <span class="stack-badge">EasyOCR</span>
+            <span class="stack-badge">OpenCV</span>
+          </div>
+          <div class="project-metric">
+            <div class="project-metric-bar"><div class="project-metric-fill" data-width="92"></div></div>
+            <span class="project-metric-val">Real-time detection</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Suresh-P-2005/Automatic_Number_Plate_Recognition" target="_blank" rel="noopener" class="project-link">
+              GitHub Repo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="YOUR_ANPR_DEMO_LINK_HERE" target="_blank" rel="noopener" class="project-link demo-link">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card glass-card tilt-card reveal-up" data-tilt style="--delay:0.05s">
+          <div class="project-card-glow"></div>
+          <div class="project-header">
+            <div class="project-badges">
+              <span class="project-badge badge-ai">🤖 Generative AI</span>
+            </div>
+            <span class="project-id">P.03</span>
+          </div>
+          <h3 class="project-title">Gourmet AI — Smart Recipe Generation System</h3>
+          <p class="project-desc">
+            AI-powered recipe generation system suggesting dishes from user-provided ingredients using generative AI APIs, with a FastAPI backend for real-time request handling.
+          </p>
+          <ul class="project-points">
+            <li>Implemented retry mechanisms for HTTP 429 rate-limit errors and efficient error management</li>
+            <li>Designed interactive frontend for instant recipe suggestions</li>
+            <li>Planned integration of camera-based ingredient detection</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-badge">FastAPI</span>
+            <span class="stack-badge">Generative AI</span>
+            <span class="stack-badge">JavaScript</span>
+            <span class="stack-badge">REST APIs</span>
+          </div>
+          <div class="project-metric">
+            <div class="project-metric-bar"><div class="project-metric-fill" data-width="85"></div></div>
+            <span class="project-metric-val">LLM-powered</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Suresh-P-2005/Gourmet_AI" target="_blank" rel="noopener" class="project-link">
+              GitHub Repo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="YOUR_GOURMET_DEMO_LINK_HERE" target="_blank" rel="noopener" class="project-link demo-link">
+              Live Demo
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section experience" id="experience">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Experience</span></div>
+      <h2 class="section-title reveal-up">My <span class="gradient-text">journey</span></h2>
+
+      <div class="timeline-wrap">
+        <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+
+        <div class="timeline-item reveal-up" data-side="left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date">Jun 2026 — Present</span>
+              <span class="timeline-type-badge work">Work</span>
+            </div>
+            <h3 class="timeline-title">AI / ML Intern</h3>
+            <p class="timeline-org">HCL Technologies</p>
+            <p class="timeline-desc">Developing & evaluating ML models within HCLTech's enterprise AI environment on real-world industry datasets. Collaborating with senior engineers on training, validation, and optimization workflows using industry-standard ML frameworks.</p>
+            <div class="timeline-tags">
+              <span>Python</span><span>PyTorch</span><span>Scikit-learn</span><span>ImageIO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" data-side="right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date">Jul 2025 — Aug 2025</span>
+              <span class="timeline-type-badge work">Work</span>
+            </div>
+            <h3 class="timeline-title">Python Intern</h3>
+            <p class="timeline-org">Entudio Pvt. Ltd</p>
+            <p class="timeline-desc">Optimized Python data-processing modules, reducing execution time by 30%. Designed and developed REST APIs using Flask for automated JSON data exchange, reducing manual processing effort by 40%.</p>
+            <div class="timeline-tags">
+              <span>Python</span><span>Flask</span><span>REST API</span><span>JSON</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" data-side="left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date">May 2025 — Jun 2025</span>
+              <span class="timeline-type-badge work">Work</span>
+            </div>
+            <h3 class="timeline-title">Mobile App Dev Intern</h3>
+            <p class="timeline-org">Hicup Innovations</p>
+            <p class="timeline-desc">Developed Flutter frontend interfaces and integrated Firebase for real-time database management across mobile platforms.</p>
+            <div class="timeline-tags">
+              <span>Flutter</span><span>Dart</span><span>Firebase</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" data-side="right">
+          <div class="timeline-dot timeline-dot-edu"></div>
+          <div class="timeline-card glass-card edu-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date">2022 — 2026 · CGPA 8.1</span>
+              <span class="timeline-type-badge edu">Education</span>
+            </div>
+            <h3 class="timeline-title">B.E. Computer Science & Engineering</h3>
+            <p class="timeline-org">VV College of Engineering</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" data-side="left">
+          <div class="timeline-dot timeline-dot-edu"></div>
+          <div class="timeline-card glass-card edu-card">
+            <div class="timeline-card-header">
+              <span class="timeline-date">2021 — 2022 · 72.5%</span>
+              <span class="timeline-type-badge edu">Education</span>
+            </div>
+            <h3 class="timeline-title">HSC</h3>
+            <p class="timeline-org">E.R.S. Higher Secondary School</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Achievements -->
+      <div class="achievements reveal-up">
+        <h3 class="achievements-title">Achievements & Certifications</h3>
+        <div class="achievements-grid">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon">🏆</div>
+            <div class="achievement-content">
+              <h4>Published Research Paper</h4>
+              <p>Co-authored <em>"Indian Sign Language Recognition and Translation System"</em>, published in the <strong>Journal of Ubiquitous Computing and Communication Technologies (ISSN: 2582-337X)</strong>, 2026. <a href="journal.pdf" target="_blank" class="project-link paper-link" style="font-size: 13px; margin-left: 8px;">Read PDF &rarr;</a></p>
+            </div>
+          </div>
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon">🎓</div>
+            <div class="achievement-content">
+              <h4>NPTEL Elite Certification</h4>
+              <p><strong>Cloud Computing (IIT Kharagpur)</strong> — Elite Certificate awarded with a score of 75%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="section-inner">
+      <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Contact</span></div>
+      <h2 class="section-title reveal-up">Let's <span class="gradient-text">build something</span></h2>
+      <p class="section-sub reveal-up">Open to AI/ML & computer vision roles, research collaborations, and interesting problems.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-up">
+          <a href="mailto:sureshreigns220@gmail.com" class="contact-info-item glass-card" id="contactEmail">
+            <span class="contact-info-icon">✉</span>
+            <div>
+              <span class="contact-info-label">Email</span>
+              <span class="contact-info-value">sureshreigns220@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+916374165039" class="contact-info-item glass-card" id="contactPhone">
+            <span class="contact-info-icon">📱</span>
+            <div>
+              <span class="contact-info-label">Phone</span>
+              <span class="contact-info-value">+91 63741 65039</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/2005-suresh-p/" class="contact-info-item glass-card" target="_blank" rel="noopener" id="contactLinkedin">
+            <span class="contact-info-icon">💼</span>
+            <div>
+              <span class="contact-info-label">LinkedIn</span>
+              <span class="contact-info-value">Suresh P</span>
+            </div>
+          </a>
+          <a href="https://github.com/Suresh-P-2005" class="contact-info-item glass-card" target="_blank" rel="noopener" id="contactGithub">
+            <span class="contact-info-icon">🐙</span>
+            <div>
+              <span class="contact-info-label">GitHub</span>
+              <span class="contact-info-value">Suresh-P-2005</span>
+            </div>
+          </a>
+
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/2005-suresh-p/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener" id="socialLinkedin">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5C1.9 5.5 1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5C4.1 1.5 4.98 2.4 4.98 3.5ZM1.5 8.5H4.5V21.5H1.5V8.5ZM9.5 8.5H12.5V10.5C13 9.5 14.3 8.3 16.3 8.3C19.5 8.3 20.5 10.5 20.5 13.7V21.5H17.5V14.2C17.5 12.5 17 11.3 15.4 11.3C13.9 11.3 12.7 12.4 12.5 13.8V21.5H9.5V8.5Z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://github.com/Suresh-P-2005" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener" id="socialGithub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12C1.5 16.7 4.5 20.6 8.7 22C8.8 21 8.8 19.7 8.5 18.7C8.5 18.7 7.7 18.8 7.4 18.2C7 17.5 6.7 17.4 6.7 17.4C6.1 17 6.6 17 6.6 17C7.3 17.1 7.6 17.7 7.6 17.7C8.2 18.7 9.3 18.4 9.7 18.2C9.8 17.7 10 17.4 10.2 17.2C8.3 16.9 6.7 16 6.7 13.4C6.7 12.4 7 11.6 7.6 11C7.5 10.7 7.3 9.8 7.7 8.6C7.7 8.6 8.5 8.4 9.9 9.3C10.5 9.1 11.2 9 12 9C12.8 9 13.5 9.1 14.1 9.3C15.5 8.4 16.3 8.6 16.3 8.6C16.7 9.8 16.4 10.7 16.4 11C17 11.6 17.3 12.4 17.3 13.4C17.3 16 15.7 16.9 13.8 17.2C14.1 17.5 14.3 18.1 14.3 19C14.3 20.2 14.3 21.4 14.2 22C18.4 20.6 21.5 16.7 21.5 12C21.5 6.2 16.8 1.5 12 1.5Z" fill="currentColor"/></svg>
+            </a>
+            <a href="mailto:sureshreigns220@gmail.com" class="social-icon" aria-label="Email" id="socialEmail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2.5 5.5H21.5V18.5H2.5V5.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 6L12 13L21 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Replace YOUR_FORMSPREE_ID_HERE with your Formspree form ID to make the form functional -->
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form glass-card reveal-up" id="contactForm" novalidate style="--delay:0.15s">
+          <h3 class="form-title">Send a message</h3>
+          <div class="form-group">
+            <input type="text" id="formName" name="name" placeholder=" " required autocomplete="name">
+            <label for="formName">Your Name</label>
+            <span class="form-error" id="errName">Please enter your name.</span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="formEmail" name="email" placeholder=" " required autocomplete="email">
+            <label for="formEmail">Email Address</label>
+            <span class="form-error" id="errEmail">Enter a valid email address.</span>
+          </div>
+          <div class="form-group">
+            <textarea id="formMessage" name="message" placeholder=" " rows="4" required></textarea>
+            <label for="formMessage">Your Message</label>
+            <span class="form-error" id="errMessage">Write a short message (min 8 chars).</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span id="submitLabel">Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-success" id="formSuccess">✓ Message received — I'll reply by email shortly!</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Suresh<span>.</span>P</div>
+    <p>Designed & built by <strong>Suresh P</strong> · <span id="footerYear"></span></p>
+    <p class="footer-right">AI/ML Engineer · Chennai, India</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
