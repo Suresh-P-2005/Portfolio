@@ -102,7 +102,7 @@
     </div>
 
     <p class="hero-desc reveal-up" style="--delay:0.3s">
-      AI/ML engineer & CSE graduate building real-time perception systems — from hybrid inference engines to production-ready computer vision pipelines.
+      AI/ML engineer & CSE graduate building real-time perception systems — from hybrid inference engines to production-ready, API-served computer vision pipelines.
     </p>
 
     <div class="hero-actions reveal-up" style="--delay:0.4s">
@@ -303,7 +303,7 @@
         <div class="skill-category glass-card">
           <div class="skill-cat-header">
             <span class="skill-cat-icon">⚡</span>
-            <h3 class="skill-cat-title">Backend & APIs</h3>
+            <h3 class="skill-cat-title">Model Serving & Backend</h3>
           </div>
           <div class="skill-bars">
             <div class="skill-bar-item">
@@ -311,20 +311,19 @@
               <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
             </div>
             <div class="skill-bar-item">
-              <div class="skill-bar-top"><span>FastAPI / Flask</span><span class="skill-pct">87%</span></div>
+              <div class="skill-bar-top"><span>FastAPI / Flask (Model Serving)</span><span class="skill-pct">87%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill" data-width="87"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-top"><span>NumPy / Pandas (Data Pipelines)</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
             </div>
             <div class="skill-bar-item">
               <div class="skill-bar-top"><span>SQLite / MongoDB</span><span class="skill-pct">80%</span></div>
               <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
             </div>
-            <div class="skill-bar-item">
-              <div class="skill-bar-top"><span>React / HTML / CSS / JS</span><span class="skill-pct">82%</span></div>
-              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-            </div>
           </div>
         </div>
-
       </div>
 
       <div class="tools-section reveal-up" style="--delay:0.2s">
@@ -333,13 +332,11 @@
           <span class="tool-chip">Git</span>
           <span class="tool-chip">VS Code</span>
           <span class="tool-chip">LM Studio</span>
+          <span class="tool-chip">Matplotlib</span>
+          <span class="tool-chip">EasyOCR</span>
           <span class="tool-chip">Web Speech API</span>
           <span class="tool-chip">Firebase</span>
           <span class="tool-chip">Flutter</span>
-          <span class="tool-chip">EasyOCR</span>
-          <span class="tool-chip">Matplotlib</span>
-          <span class="tool-chip">NumPy</span>
-          <span class="tool-chip">Pandas</span>
         </div>
       </div>
     </div>
@@ -368,6 +365,7 @@
           </p>
           <ul class="project-points">
             <li>Real-time CV pipeline extracting 126 3D skeletal coords/frame via MediaPipe + OpenCV</li>
+            <li>Optimized for real-time CPU inference without requiring dedicated GPU hardware</li>
             <li>Offline Phi-3 LLM (LM Studio) integrated for grammar-aware sentence generation</li>
             <li>Web Speech API pipeline delivering TTS across 11 languages</li>
           </ul>
@@ -409,7 +407,7 @@
           </div>
           <h3 class="project-title">Automatic Number Plate Recognition (ANPR)</h3>
           <p class="project-desc">
-            End-to-end computer vision pipeline detecting vehicle license plates using YOLOv5 and extracting registration numbers with EasyOCR.
+            End-to-end computer vision pipeline detecting vehicle license plates using YOLOv5 and extracting registration numbers with EasyOCR. Designed for scalable, real-time video stream processing.
           </p>
           <ul class="project-points">
             <li>Built scalable inference pipeline supporting still-image and video-based detection</li>
@@ -448,12 +446,12 @@
           </div>
           <h3 class="project-title">Gourmet AI — Smart Recipe Generation System</h3>
           <p class="project-desc">
-            AI-powered recipe generation system suggesting dishes from user-provided ingredients using generative AI APIs, with a FastAPI backend for real-time request handling.
+            AI-powered recipe generation system suggesting dishes from user-provided ingredients using generative AI APIs, with a FastAPI model-serving backend for real-time request handling.
           </p>
           <ul class="project-points">
-            <li>Implemented retry mechanisms for HTTP 429 rate-limit errors and efficient error management</li>
+            <li>Engineered LLM request handling with robust rate-limiting and retry mechanisms via FastAPI</li>
             <li>Designed interactive frontend for instant recipe suggestions</li>
-            <li>Planned integration of camera-based ingredient detection</li>
+            <li>Planned integration of camera-based ingredient detection using OpenCV</li>
           </ul>
           <div class="project-stack">
             <span class="stack-badge">FastAPI</span>
