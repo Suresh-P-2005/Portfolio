@@ -217,7 +217,12 @@
           <!-- Headshot -->
           <div class="about-photo-wrap reveal-up" style="--delay:0.05s">
             <div class="about-photo-frame">
-              <img src="img.jpg" alt="Suresh P — AI/ML Engineer" class="about-photo" loading="lazy" width="340" height="420">
+              <picture>
+                <!-- Uncomment these lines once you have generated the .avif and .webp files! -->
+                <!-- <source srcset="img.avif" type="image/avif"> -->
+                <!-- <source srcset="img.webp" type="image/webp"> -->
+                <img src="img.jpg" alt="Suresh P — AI/ML Engineer" class="about-photo" loading="lazy" width="340" height="420">
+              </picture>
               <div class="about-photo-overlay"></div>
             </div>
             <div class="about-photo-badge">
@@ -417,6 +422,35 @@
         <p class="section-sub reveal-up">Systems engineered end-to-end — model, pipeline, and deployment.</p>
 
         <div class="projects-grid">
+
+          <!-- LIVE AI DEMO CARD -->
+          <article class="project-card glass-card tilt-card reveal-up" style="grid-column: 1 / -1; min-height: 440px; display: flex; flex-direction: column;" data-tilt>
+            <div class="project-card-glow"></div>
+            <div class="project-header" style="position: relative; z-index: 10;">
+              <div class="project-badges">
+                <span class="project-badge badge-published" style="background: var(--primary); color: white;">LIVE AI DEMO</span>
+              </div>
+              <span class="project-id">Live</span>
+            </div>
+            <h3 class="project-title" style="position: relative; z-index: 10;">In-Browser Hand Tracking</h3>
+            <p class="project-desc" style="position: relative; z-index: 10; max-width: 700px;">
+              A lightweight demonstration of real-time computer vision running entirely on the edge (your browser). No server processing required. Uses Google MediaPipe to track 21 3D landmarks per hand.
+            </p>
+            
+            <!-- Demo Area -->
+            <div id="demo-wrap" class="ai-demo-container">
+              <video id="demo-video" playsinline style="display: none;"></video>
+              <canvas id="demo-canvas" class="ai-demo-canvas"></canvas>
+              
+              <div class="ai-demo-overlay">
+                <button id="start-demo-btn" class="btn btn-primary">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  Access Webcam & Start
+                </button>
+                <p class="ai-demo-note">Runs locally. Video is never uploaded.</p>
+              </div>
+            </div>
+          </article>
 
           <article class="project-card glass-card tilt-card reveal-up" data-tilt>
             <div class="project-card-glow"></div>
@@ -874,6 +908,13 @@
   </div>
 
   <script src="script.js"></script>
+  
+  <!-- MediaPipe Hand Tracking Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script src="mediapipe-demo.js"></script>
 </body>
 
 </html>
