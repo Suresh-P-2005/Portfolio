@@ -10,8 +10,104 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobile = window.matchMedia('(max-width: 860px)').matches;
 
   /* ---------------------------------------------------------
-     2. CUSTOM CURSOR - Removed for better accessibility
+     1. SCROLL PROGRESS BAR
   --------------------------------------------------------- */
+  (function scrollProgress() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+
+    let ticking = false;
+
+    const update = () => {
+      const scrollTop  = window.scrollY || document.documentElement.scrollTop;
+      const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio      = docHeight > 0 ? scrollTop / docHeight : 0;
+      bar.style.transform = `scaleX(${ratio.toFixed(4)})`;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Set initial state
+    update();
+  })();
+
+  /* ---------------------------------------------------------
+     2. CUSTOM CURSOR — lerp-interpolated ring trail
+  --------------------------------------------------------- */
+  (function customCursor() {
+    // Only run on fine-pointer (mouse) devices
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (reducedMotion) return;
+
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (!dot || !ring) return;
+
+    const LERP = 0.15; // ring follow speed (0 = frozen, 1 = instant)
+
+    let mouseX = 0, mouseY = 0;   // true cursor position (dot target)
+    let ringX  = 0, ringY  = 0;   // current interpolated ring position
+    let visible = false;
+
+    // Persistent rAF loop — runs every frame, no start/stop overhead
+    const tick = () => {
+      // Lerp ring toward dot
+      ringX += (mouseX - ringX) * LERP;
+      ringY += (mouseY - ringY) * LERP;
+
+      dot.style.transform  = `translate(calc(-50% + ${mouseX}px), calc(-50% + ${mouseY}px))`;
+      ring.style.transform = `translate(calc(-50% + ${ringX.toFixed(2)}px), calc(-50% + ${ringY.toFixed(2)}px))`;
+
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // Track true mouse position
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // Reveal on first move (prevents flash at 0,0 on load)
+      if (!visible) {
+        dot.style.opacity  = '1';
+        ring.style.opacity = '1';
+        visible = true;
+      }
+    }, { passive: true });
+
+    // Hide when cursor leaves the window
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity  = '0';
+      ring.style.opacity = '0';
+      visible = false;
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity  = '1';
+      ring.style.opacity = '1';
+      visible = true;
+    });
+
+    // Hover detection via delegation — one listener instead of N
+    const HOVER_SELECTOR = 'a, button, .glass-card, [role="button"], label, .tool-chip, .about-chip, .nav-link, .btn-cert';
+
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(HOVER_SELECTOR)) {
+        ring.classList.add('is-hover');
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(HOVER_SELECTOR)) {
+        ring.classList.remove('is-hover');
+      }
+    }, { passive: true });
+  })();
 
   /* ---------------------------------------------------------
      3. THEME TOGGLE (Light / Dark)
@@ -226,8 +322,77 @@ document.addEventListener('DOMContentLoaded', () => {
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
     items.forEach(el => io.observe(el));
+  })();
+
+  /* ---------------------------------------------------------
+     8b. MAGNETIC BUTTON EFFECT
+  --------------------------------------------------------- */
+  (function magneticButtons() {
+    if (isMobile || reducedMotion) return;
+
+    const STRENGTH   = 0.38;  // how far the button pulls (fraction of half-size)
+    const MAX_PX     = 12;    // hard cap in pixels
+    const LERP_IN    = 0.18;  // interpolation speed while hovering (0–1)
+    const LERP_OUT   = 0.10;  // interpolation speed on snap-back
+
+    const btns = document.querySelectorAll('.btn, .nav-cta, .nav-resume');
+
+    btns.forEach(btn => {
+      let rafId      = null;
+      let targetX    = 0, targetY = 0;
+      let currentX   = 0, currentY = 0;
+      let isHovering = false;
+
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+      function tick() {
+        const lerpFactor = isHovering ? LERP_IN : LERP_OUT;
+        currentX = lerp(currentX, targetX, lerpFactor);
+        currentY = lerp(currentY, targetY, lerpFactor);
+
+        btn.style.transform = `translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+
+        // Keep running until settled (within 0.05px of target)
+        if (Math.abs(currentX - targetX) > 0.05 || Math.abs(currentY - targetY) > 0.05) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          // Snap exactly to target and stop
+          btn.style.transform = targetX === 0 && targetY === 0
+            ? ''
+            : `translate(${targetX}px, ${targetY}px)`;
+          rafId = null;
+        }
+      }
+
+      function startLoop() {
+        if (rafId) return;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const cx   = rect.left + rect.width  / 2;
+        const cy   = rect.top  + rect.height / 2;
+        const dx   = e.clientX - cx;
+        const dy   = e.clientY - cy;
+
+        targetX = clamp(dx * STRENGTH, -MAX_PX, MAX_PX);
+        targetY = clamp(dy * STRENGTH, -MAX_PX, MAX_PX);
+        isHovering = true;
+
+        startLoop();
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        targetX    = 0;
+        targetY    = 0;
+        isHovering = false;
+        startLoop();
+      });
+    });
   })();
 
   /* ---------------------------------------------------------
@@ -275,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   /* ---------------------------------------------------------
-     11. PROJECT CARD 3D TILT + GLOW
+     11. PROJECT CARD 3D TILT + GLARE
   --------------------------------------------------------- */
   (function tiltCards() {
     if (isMobile) return;
@@ -288,14 +453,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const rX = ((y - cy) / cy) * -6;
         const rY = ((x - cx) / cx) * 6;
         card.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg) translateY(-4px)`;
+        // Feed both the ambient glow element and ::after glare
         card.style.setProperty('--mx', x + 'px');
         card.style.setProperty('--my', y + 'px');
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
+        // Move glare off-canvas so it doesn't linger at last cursor position
+        card.style.setProperty('--mx', '-999px');
+        card.style.setProperty('--my', '-999px');
       });
     });
   })();
+
 
   /* ---------------------------------------------------------
      12. TIMELINE PROGRESS LINE
@@ -314,6 +484,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     update();
+  })();
+
+  /* ---------------------------------------------------------
+     12b. TIMELINE ACTIVE ITEM — lights up centered era
+  --------------------------------------------------------- */
+  (function timelineActiveItem() {
+    const items = document.querySelectorAll('.timeline-item');
+    if (!items.length) return;
+
+    // rootMargin: clip top & bottom by 35% — only the middle 30% triggers
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-active', entry.isIntersecting);
+      });
+    }, {
+      rootMargin: '-35% 0px -35% 0px',
+      threshold:  0
+    });
+
+    items.forEach(item => io.observe(item));
   })();
 
   /* ---------------------------------------------------------
