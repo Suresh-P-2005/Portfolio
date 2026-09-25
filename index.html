@@ -210,7 +210,7 @@
         <div class="section-eyebrow reveal-up">
           <span class="eyebrow-tag">About</span>
         </div>
-        <h2 class="section-title reveal-up">The engineer <span class="gradient-text">behind the models</span></h2>
+        <h2 class="section-title reveal-up"><span class="header-emoji">👨‍💻</span> The engineer <span class="gradient-text">behind the models</span></h2>
 
         <div class="about-grid">
 
@@ -287,7 +287,7 @@
     <section class="section skills" id="skills">
       <div class="section-inner">
         <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Skills</span></div>
-        <h2 class="section-title reveal-up">Technical <span class="gradient-text">capabilities</span></h2>
+        <h2 class="section-title reveal-up"><span class="header-emoji">🛠️</span> Technical <span class="gradient-text">capabilities</span></h2>
         <p class="section-sub reveal-up">Proficiency built through real-world projects, internships & published
           research.</p>
 
@@ -418,7 +418,7 @@
     <section class="section projects" id="projects">
       <div class="section-inner">
         <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Projects</span></div>
-        <h2 class="section-title reveal-up">Selected <span class="gradient-text">builds</span></h2>
+        <h2 class="section-title reveal-up"><span class="header-emoji">🚀</span> Selected <span class="gradient-text">builds</span></h2>
         <p class="section-sub reveal-up">Systems engineered end-to-end — model, pipeline, and deployment.</p>
 
         <div class="projects-grid">
@@ -458,26 +458,30 @@
               </div>
               <span class="project-metric-val">&lt;15ms CPU Latency</span>
             </div>
-            <button class="btn btn-ghost btn-workflow" data-workflow="p1" id="workflowBtn-p1"
-              aria-label="View ISL project workflow">
-              <span>&#9889; View Workflow</span>
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7H12M12 7L8.5 3.5M12 7L8.5 10.5" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
+            <button class="btn-advanced btn-workflow" data-workflow="p1" id="workflowBtn-p1" aria-label="View Workflow">
+              <span class="btn-icon">⚡</span>
+              <span>View Workflow</span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 7h10M8.5 3.5 12 7l-3.5 3.5" />
               </svg>
             </button>
             <div class="project-links">
-              <a href="journal.pdf" target="_blank" rel="noopener" class="project-link paper-link">
-                Read Paper
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M4 2v10h8V6L8 2H4zM8 2v4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+              <a href="journal.pdf" target="_blank" rel="noopener" class="btn-advanced btn-paper">
+                <span class="btn-icon">📄</span>
+                <span>Read Paper</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 2v10h8V6L8 2H4zM8 2v4h4" />
                 </svg>
               </a>
-              <a href="https://github.com/Suresh-P-2005/ISL" target="_blank" rel="noopener" class="project-link">
-                GitHub Repo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <a href="https://github.com/Suresh-P-2005/ISL" target="_blank" rel="noopener" class="btn-advanced btn-github">
+                <span class="btn-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </span>
+                <span>GitHub Repo</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 2H12M12 2V12M12 2L2 12" />
                 </svg>
               </a>
 
@@ -488,49 +492,53 @@
             <div class="project-card-glow"></div>
             <div class="project-header">
               <div class="project-badges">
-                <span class="project-badge badge-personal">🔬 Computer Vision</span>
+                <span class="project-badge badge-ai">💼 Industry Project</span>
               </div>
               <span class="project-id">P.02</span>
             </div>
-            <h3 class="project-title">Automatic Number Plate Recognition (ANPR)</h3>
+            <h3 class="project-title">PPE Guard — Real-Time Safety Inspection</h3>
             <p class="project-desc">
-              End-to-end computer vision pipeline detecting vehicle license plates using YOLOv5 and extracting
-              registration numbers with EasyOCR. Designed for scalable, real-time video stream processing.
+              Developed an asynchronous, real-time workplace safety compliance pipeline during the HCLTech internship,
+              designed to ingest and process high-throughput enterprise video streams.
             </p>
             <ul class="project-points">
-              <li>Built scalable inference pipeline supporting still-image and video-based detection</li>
-              <li>Integrated real-time visualization with plate localization, OCR and overlay</li>
-              <li>Supports both CPU inference and optional GPU acceleration</li>
+              <li>Executed YOLOv8 FP16 training, validation, and inference benchmarking on cloud-based NVIDIA T4 GPUs
+                via Google Colab.</li>
+              <li>Implemented a zero-buffer preprocessing thread to normalize frames and prevent memory exhaustion.</li>
+              <li>Leveraged half-precision tensors to maximize cloud compute utilization and reduce inference overhead.
+              </li>
             </ul>
             <div class="project-stack">
               <span class="stack-badge">Python</span>
-              <span class="stack-badge">YOLOv5</span>
-              <span class="stack-badge">EasyOCR</span>
-              <span class="stack-badge">OpenCV</span>
+              <span class="stack-badge">YOLO</span>
+              <span class="stack-badge">Roboflow</span>
+              <span class="stack-badge">CVAT</span>
             </div>
             <div class="project-metric">
               <div class="project-metric-bar">
-                <div class="project-metric-fill" data-width="92"></div>
+                <div class="project-metric-fill" data-width="100"></div>
               </div>
-              <span class="project-metric-val">High-throughput Video Stream</span>
+              <span class="project-metric-val">Zero-buffer threading</span>
             </div>
-            <button class="btn btn-ghost btn-workflow" data-workflow="p2" id="workflowBtn-p2"
-              aria-label="View ANPR project workflow">
-              <span>&#9889; View Workflow</span>
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7H12M12 7L8.5 3.5M12 7L8.5 10.5" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
+            <button class="btn-advanced btn-workflow" data-workflow="p2" id="workflowBtn-p2" aria-label="View Workflow">
+              <span class="btn-icon">⚡</span>
+              <span>View Workflow</span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 7h10M8.5 3.5 12 7l-3.5 3.5" />
               </svg>
             </button>
             <div class="project-links">
-              <a href="https://github.com/Suresh-P-2005/Automatic_Number_Plate_Recognition" target="_blank"
-                rel="noopener" class="project-link">
-                GitHub Repo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <a href="https://github.com/Suresh-P-2005/Real-Time-PPE-Detection-System" target="_blank" rel="noopener" class="btn-advanced btn-github">
+                <span class="btn-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </span>
+                <span>GitHub Repo</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 2H12M12 2V12M12 2L2 12" />
                 </svg>
               </a>
-
             </div>
           </article>
 
@@ -564,19 +572,23 @@
               </div>
               <span class="project-metric-val">Sub-second API Dispatch</span>
             </div>
-            <button class="btn btn-ghost btn-workflow" data-workflow="p3" id="workflowBtn-p3"
-              aria-label="View Gourmet AI project workflow">
-              <span>&#9889; View Workflow</span>
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7H12M12 7L8.5 3.5M12 7L8.5 10.5" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
+            <button class="btn-advanced btn-workflow" data-workflow="p3" id="workflowBtn-p3" aria-label="View Workflow">
+              <span class="btn-icon">⚡</span>
+              <span>View Workflow</span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 7h10M8.5 3.5 12 7l-3.5 3.5" />
               </svg>
             </button>
             <div class="project-links">
-              <a href="https://github.com/Suresh-P-2005/Gourmet_AI" target="_blank" rel="noopener" class="project-link">
-                GitHub Repo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <a href="https://github.com/Suresh-P-2005/Gourmet_AI" target="_blank" rel="noopener" class="btn-advanced btn-github">
+                <span class="btn-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </span>
+                <span>GitHub Repo</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 2H12M12 2V12M12 2L2 12" />
                 </svg>
               </a>
 
@@ -587,48 +599,49 @@
             <div class="project-card-glow"></div>
             <div class="project-header">
               <div class="project-badges">
-                <span class="project-badge badge-ai">💼 Industry Project</span>
+                <span class="project-badge badge-personal">🔬 Computer Vision</span>
               </div>
               <span class="project-id">P.04</span>
             </div>
-            <h3 class="project-title">PPE Guard — Real-Time Safety Inspection</h3>
+            <h3 class="project-title">Automatic Number Plate Recognition (ANPR)</h3>
             <p class="project-desc">
-              Developed an asynchronous, real-time workplace safety compliance pipeline during the HCLTech internship,
-              designed to ingest and process high-throughput enterprise video streams.
+              End-to-end computer vision pipeline detecting vehicle license plates using YOLOv5 and extracting
+              registration numbers with EasyOCR. Designed for scalable, real-time video stream processing.
             </p>
             <ul class="project-points">
-              <li>Executed YOLOv8 FP16 training, validation, and inference benchmarking on cloud-based NVIDIA T4 GPUs
-                via Google Colab.</li>
-              <li>Implemented a zero-buffer preprocessing thread to normalize frames and prevent memory exhaustion.</li>
-              <li>Leveraged half-precision tensors to maximize cloud compute utilization and reduce inference overhead.
-              </li>
+              <li>Built scalable inference pipeline supporting still-image and video-based detection</li>
+              <li>Integrated real-time visualization with plate localization, OCR and overlay</li>
+              <li>Supports both CPU inference and optional GPU acceleration</li>
             </ul>
             <div class="project-stack">
               <span class="stack-badge">Python</span>
-              <span class="stack-badge">YOLO</span>
-              <span class="stack-badge">Roboflow</span>
-              <span class="stack-badge">CVAT</span>
+              <span class="stack-badge">YOLOv5</span>
+              <span class="stack-badge">EasyOCR</span>
+              <span class="stack-badge">OpenCV</span>
             </div>
             <div class="project-metric">
               <div class="project-metric-bar">
-                <div class="project-metric-fill" data-width="100"></div>
+                <div class="project-metric-fill" data-width="92"></div>
               </div>
-              <span class="project-metric-val">Zero-buffer threading</span>
+              <span class="project-metric-val">High-throughput Video Stream</span>
             </div>
-            <button class="btn btn-ghost btn-workflow" data-workflow="p4" id="workflowBtn-p4"
-              aria-label="View PPE Guard project workflow">
-              <span>&#9889; View Workflow</span>
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7H12M12 7L8.5 3.5M12 7L8.5 10.5" stroke="currentColor" stroke-width="1.5"
-                  stroke-linecap="round" stroke-linejoin="round" />
+            <button class="btn-advanced btn-workflow" data-workflow="p4" id="workflowBtn-p4" aria-label="View Workflow">
+              <span class="btn-icon">⚡</span>
+              <span>View Workflow</span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 7h10M8.5 3.5 12 7l-3.5 3.5" />
               </svg>
             </button>
             <div class="project-links">
-              <a href="https://github.com/Suresh-P-2005/Real-Time-PPE-Detection-System" target="_blank" rel="noopener"
-                class="project-link">
-                GitHub Repo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2H12M12 2V12M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <a href="https://github.com/Suresh-P-2005/Automatic_Number_Plate_Recognition" target="_blank" rel="noopener" class="btn-advanced btn-github">
+                <span class="btn-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </span>
+                <span>GitHub Repo</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 2H12M12 2V12M12 2L2 12" />
                 </svg>
               </a>
             </div>
@@ -642,7 +655,7 @@
     <section class="section experience" id="experience">
       <div class="section-inner">
         <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Experience</span></div>
-        <h2 class="section-title reveal-up">My <span class="gradient-text">journey</span></h2>
+        <h2 class="section-title reveal-up"><span class="header-emoji">⏳</span> My <span class="gradient-text">journey</span></h2>
 
         <div class="timeline-wrap">
           <div class="timeline-line">
@@ -664,9 +677,13 @@
               <div class="timeline-tags">
                 <span>Python</span><span>PyTorch</span><span>Scikit-learn</span><span>ImageIO</span>
               </div>
-              <a href="Suresh P HCL.pdf" target="_blank" rel="noopener" class="btn-cert">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                View Certificate
+              <a href="Suresh P HCL.pdf" target="_blank" rel="noopener" class="btn-advanced btn-cert">
+                <span class="btn-icon">🎓</span>
+                <span>View Certificate</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                  <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
+                </svg>
               </a>
             </div>
           </div>
@@ -686,9 +703,13 @@
               <div class="timeline-tags">
                 <span>Python</span><span>Flask</span><span>REST API</span><span>JSON</span>
               </div>
-              <a href="Python Internship.pdf" target="_blank" rel="noopener" class="btn-cert">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                View Certificate
+              <a href="Python Internship.pdf" target="_blank" rel="noopener" class="btn-advanced btn-cert">
+                <span class="btn-icon">🎓</span>
+                <span>View Certificate</span>
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                  <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
+                </svg>
               </a>
             </div>
           </div>
@@ -731,8 +752,13 @@
                 <h4>Published Research Paper</h4>
                 <p>Co-authored <em>"Indian Sign Language Recognition and Translation System"</em>, published in the
                   <strong>Journal of Ubiquitous Computing and Communication Technologies (ISSN: 2582-337X)</strong>,
-                  2026. <a href="journal.pdf" target="_blank" class="project-link paper-link"
-                    style="font-size: 13px; margin-left: 8px;">Read PDF &rarr;</a></p>
+                  2026. <a href="journal.pdf" target="_blank" class="btn-advanced btn-pdf" style="margin-left: 8px; transform: scale(0.9); transform-origin: left center;">
+                    <span class="btn-icon">📑</span>
+                    <span>Read PDF</span>
+                    <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 2v10h8V6L8 2H4zM8 2v4h4" />
+                    </svg>
+                  </a></p>
               </div>
             </div>
             <div class="achievement-card glass-card">
@@ -740,9 +766,13 @@
               <div class="achievement-content">
                 <h4>NPTEL Elite Certification</h4>
                 <p><strong>Cloud Computing (IIT Kharagpur)</strong> — Elite Certificate awarded with a score of 75%.</p>
-                <a href="NPTEL-Cloud.pdf" target="_blank" rel="noopener" class="btn-cert">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                  View Certificate
+                <a href="NPTEL-Cloud.pdf" target="_blank" rel="noopener" class="btn-advanced btn-cert">
+                  <span class="btn-icon">🎓</span>
+                  <span>View Certificate</span>
+                  <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z" />
+                    <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8" />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -755,7 +785,7 @@
     <section class="section contact" id="contact">
       <div class="section-inner">
         <div class="section-eyebrow reveal-up"><span class="eyebrow-tag">Contact</span></div>
-        <h2 class="section-title reveal-up">Let's <span class="gradient-text">build something</span></h2>
+        <h2 class="section-title reveal-up"><span class="header-emoji">📬</span> Let's <span class="gradient-text">build something</span></h2>
         <p class="section-sub reveal-up">Open to AI/ML & computer vision roles, research collaborations, and interesting
           problems.</p>
 

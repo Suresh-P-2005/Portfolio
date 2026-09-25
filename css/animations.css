@@ -28,3 +28,56 @@
     opacity: 1;
   }
 }
+
+/* ======================== EMOJI ANIMATIONS ======================== */
+
+.header-emoji {
+  display: inline-block;
+  margin-right: 0.25rem;
+  transform-origin: bottom center;
+}
+
+.reveal-up.is-revealed .header-emoji {
+  animation: emoji-wave 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes emoji-wave {
+  0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
+  15% { transform: rotate(20deg) scale(1.1); opacity: 1; }
+  30% { transform: rotate(-15deg) scale(1.1); }
+  45% { transform: rotate(10deg) scale(1.1); }
+  60% { transform: rotate(-10deg) scale(1.1); }
+  75% { transform: rotate(5deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* ======================== CHIP HOVER INTERACTIONS ======================== */
+
+/* Base styles for the hidden emojis */
+.tool-chip::before, .about-chip::before {
+  display: inline-block;
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-10px) scale(0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
+}
+
+/* Assign tech emojis based on child order to tool-chips */
+.tool-chip:nth-child(4n+1)::before { content: '⚡'; }
+.tool-chip:nth-child(4n+2)::before { content: '⚙️'; }
+.tool-chip:nth-child(4n+3)::before { content: '🧠'; }
+.tool-chip:nth-child(4n+4)::before { content: '🐍'; }
+
+/* Assign playful emojis to about-chips */
+.about-chip:nth-child(3n+1)::before { content: '🌍'; }
+.about-chip:nth-child(3n+2)::before { content: '👨‍🎓'; }
+.about-chip:nth-child(3n+3)::before { content: '🔥'; }
+
+/* Hover effect */
+.tool-chip:hover::before, .about-chip:hover::before {
+  opacity: 1;
+  max-width: 24px;
+  transform: translateX(0) scale(1);
+  margin-right: 6px;
+}

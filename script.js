@@ -212,6 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let w, h, pArr = [];
     const mouse = { x: null, y: null, active: false };
 
+    // Floating tech symbols
+    const techSymbols = ['{ }', '</>', 'λ', '∑', '🤖', '⚡', '⚙️'];
+    let symArr = [];
+
     // Color stops
     const colors = ['rgba(108,99,255,', 'rgba(0,212,255,', 'rgba(255,107,107,'];
 
@@ -224,6 +228,18 @@ document.addEventListener('DOMContentLoaded', () => {
         vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
         r: Math.random() * 1.8 + 0.5,
         c: colors[Math.floor(Math.random() * colors.length)]
+      }));
+
+      // Initialize tech symbols
+      const symCount = Math.min(15, Math.floor((w * h) / 40000));
+      symArr = Array.from({ length: symCount }, () => ({
+        x: Math.random() * w, 
+        y: Math.random() * h + h / 2, // Start lower
+        vx: (Math.random() - 0.5) * 0.2, 
+        vy: - (Math.random() * 0.5 + 0.2), // Drift upwards
+        text: techSymbols[Math.floor(Math.random() * techSymbols.length)],
+        c: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 8 + 12 // 12px to 20px
       }));
     }
 
@@ -262,6 +278,41 @@ document.addEventListener('DOMContentLoaded', () => {
       pArr.forEach(p => {
         ctx.fillStyle = p.c + '0.65)';
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Draw and animate tech symbols
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      symArr.forEach(s => {
+        s.x += s.vx; 
+        s.y += s.vy;
+        
+        // Wrap horizontally and respawn vertically
+        if (s.x < -20) s.x = w + 20;
+        if (s.x > w + 20) s.x = -20;
+        if (s.y < -30) {
+          s.y = h + 30;
+          s.x = Math.random() * w;
+        }
+
+        // Dodge cursor interactively
+        if (mouse.active) {
+          const dx = s.x - mouse.x, dy = s.y - mouse.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) {
+            const f = (120 - d) / 120;
+            s.x += (dx / d) * f * 3;
+            s.y += (dy / d) * f * 3;
+          }
+        }
+
+        ctx.font = `${s.size}px monospace`;
+        ctx.fillStyle = s.c + '0.4)';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = s.c + '0.8)';
+        ctx.fillText(s.text, s.x, s.y);
+        ctx.shadowBlur = 0; // reset
       });
 
       if (!reducedMotion && isVisible) requestAnimationFrame(draw);
@@ -724,8 +775,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
 
-      /* ---- P2: ANPR ---- */
-      p2: {
+      /* ---- P4: ANPR ---- */
+      p4: {
         title: 'ANPR — Automatic Number Plate Recognition',
         type: 'isl', /* Use detailed 3D renderer */
         stages: [
@@ -824,8 +875,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
       },
 
-      /* ---- P4: PPE Guard ---- */
-      p4: {
+      /* ---- P2: PPE Guard ---- */
+      p2: {
         title: 'PPE Guard — Real-Time Safety Inspection',
         type: 'isl', /* Use detailed 3D renderer */
         stages: [
