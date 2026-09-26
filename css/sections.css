@@ -1601,7 +1601,8 @@
 }
 
 .form-success.is-visible {
-  max-height: 30px;
+  max-height: 100px;
+  margin-top: 10px;
   opacity: 1;
 }
 
