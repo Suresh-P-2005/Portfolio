@@ -180,6 +180,11 @@
   flex-direction: column;
   gap: 5px;
   width: 26px;
+  padding: 14px;
+  margin: -14px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
   z-index: 600;
 }
 

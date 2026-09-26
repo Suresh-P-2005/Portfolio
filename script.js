@@ -326,7 +326,13 @@ document.addEventListener('DOMContentLoaded', () => {
     heroObs.observe(hero);
 
     resize();
-    window.addEventListener('resize', resize);
+    let lastCanvasWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== lastCanvasWidth) {
+        lastCanvasWidth = window.innerWidth;
+        resize();
+      }
+    });
     hero.addEventListener('mousemove', (e) => {
       const rect = hero.getBoundingClientRect();
       mouse.x = e.clientX - rect.left; mouse.y = e.clientY - rect.top; mouse.active = true;
