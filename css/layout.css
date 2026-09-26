@@ -179,9 +179,10 @@
   display: none;
   flex-direction: column;
   gap: 5px;
-  width: 26px;
-  padding: 14px;
-  margin: -14px;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -191,7 +192,7 @@
 .nav-burger span {
   display: block;
   height: 2px;
-  width: 100%;
+  width: 26px;
   background: var(--text);
   border-radius: 1px;
   transition: 0.3s var(--ease);
@@ -275,7 +276,7 @@
   }
 
   .nav-links,
-  .nav-cta {
+  .nav-resume {
     display: none;
   }
 
