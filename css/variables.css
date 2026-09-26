@@ -3,61 +3,100 @@
 /* ======================== TOKENS ======================== */
 
 :root {
-  --primary: #6C63FF;
-  --primary-light: #8B85FF;
-  --primary-dim: rgba(108, 99, 255, 0.15);
-  --primary-glow: rgba(108, 99, 255, 0.4);
-  --secondary: #00D4FF;
-  --secondary-dim: rgba(0, 212, 255, 0.12);
-  --secondary-glow: rgba(0, 212, 255, 0.35);
-  --accent: #FF6B6B;
-  --accent-dim: rgba(255, 107, 107, 0.12);
+  /* ── Obsidian & Gold Dark Mode ── */
 
-  --bg: #0F172A;
-  --bg-2: #1E293B;
-  --surface: rgba(30, 41, 59, 0.6);
-  --surface-2: rgba(30, 41, 59, 0.85);
-  --border: rgba(108, 99, 255, 0.2);
-  --border-subtle: rgba(255, 255, 255, 0.06);
+  /* Primary: Brushed Champagne Gold */
+  --primary: #E5C07B;
+  --primary-light: #F0D09A;
+  --primary-dim: rgba(229, 192, 123, 0.12);
+  --primary-glow: rgba(229, 192, 123, 0.22);
 
-  --text: #F1F5F9;
-  --text-dim: #94A3B8;
-  --text-faint: #475569;
+  /* Secondary: Warm Platinum / Silver */
+  --secondary: #C9D1D9;
+  --secondary-dim: rgba(201, 209, 217, 0.1);
+  --secondary-glow: rgba(201, 209, 217, 0.18);
 
-  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-  --gradient-soft: linear-gradient(135deg, rgba(108, 99, 255, 0.8), rgba(0, 212, 255, 0.8));
+  /* Accent: Muted Copper Rose (replaces neon red) */
+  --accent: #C0785A;
+  --accent-dim: rgba(192, 120, 90, 0.12);
 
+  /* Backgrounds: Deep Obsidian */
+  --bg: #0A0A0B;
+  --bg-2: #111113;
+  --surface: rgba(22, 22, 26, 0.65);
+  --surface-2: rgba(22, 22, 26, 0.92);
+
+  /* Borders */
+  --border: rgba(229, 192, 123, 0.18);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --text: #F0EDE8;
+  --text-dim: #A89F95;
+  --text-faint: #5C5750;
+
+  /* Gradients: Gold → Platinum */
+  --gradient: linear-gradient(135deg, #E5C07B, #C9D1D9);
+  --gradient-soft: linear-gradient(135deg, rgba(229, 192, 123, 0.75), rgba(201, 209, 217, 0.75));
+
+  /* Typography */
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  /* Layout */
   --container: 1200px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-  --glass-bg: rgba(15, 23, 42, 0.5);
-  --glass-border: rgba(108, 99, 255, 0.25);
+  /* Glass */
+  --glass-bg: rgba(10, 10, 11, 0.55);
+  --glass-border: rgba(229, 192, 123, 0.18);
   --glass-blur: blur(20px);
+
   --radius: 16px;
   --radius-sm: 10px;
 }
 
 /* ======================== LIGHT MODE ======================== */
+/* "Alabaster & Onyx" Editorial Look */
 
 [data-theme="light"] {
-  --bg: #F8FAFF;
-  --bg-2: #EEF2FF;
-  --surface: rgba(255, 255, 255, 0.7);
-  --surface-2: rgba(255, 255, 255, 0.9);
-  --border: rgba(108, 99, 255, 0.25);
-  --border-subtle: rgba(0, 0, 0, 0.06);
+  /* Primary: Deep Onyx Charcoal */
+  --primary: #1A1A1A;
+  --primary-light: #2E2E2E;
+  --primary-dim: rgba(26, 26, 26, 0.08);
+  --primary-glow: rgba(26, 26, 26, 0.15);
 
-  --text: #0F172A;
-  --text-dim: #334155;
-  /* Darkened from #475569 for WCAG AA compliance */
-  --text-faint: #64748B;
-  /* Darkened from #94A3B8 for WCAG AA compliance */
+  /* Secondary: Deep Bronze / Slate */
+  --secondary: #6B5B45;
+  --secondary-dim: rgba(107, 91, 69, 0.1);
+  --secondary-glow: rgba(107, 91, 69, 0.2);
 
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-border: rgba(108, 99, 255, 0.2);
+  /* Accent: Muted Terracotta */
+  --accent: #A0522D;
+  --accent-dim: rgba(160, 82, 45, 0.1);
+
+  /* Backgrounds: Warm Alabaster */
+  --bg: #F5F2ED;
+  --bg-2: #EDEAE3;
+  --surface: rgba(255, 253, 249, 0.75);
+  --surface-2: rgba(255, 253, 249, 0.95);
+
+  /* Borders */
+  --border: rgba(26, 26, 26, 0.15);
+  --border-subtle: rgba(0, 0, 0, 0.07);
+
+  /* Text */
+  --text: #1A1A1A;
+  --text-dim: #3D3730;
+  --text-faint: #7A7068;
+
+  /* Gradients: Onyx → Bronze */
+  --gradient: linear-gradient(135deg, #1A1A1A, #6B5B45);
+  --gradient-soft: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(107, 91, 69, 0.8));
+
+  /* Glass */
+  --glass-bg: rgba(245, 242, 237, 0.75);
+  --glass-border: rgba(26, 26, 26, 0.12);
 }
