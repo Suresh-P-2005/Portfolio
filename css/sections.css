@@ -1601,9 +1601,11 @@
 }
 
 .form-success.is-visible {
-  max-height: 100px;
+  max-height: 300px;
   margin-top: 10px;
+  margin-bottom: 10px;
   opacity: 1;
+  overflow: visible;
 }
 
 @media (max-width: 900px) {
