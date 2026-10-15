@@ -85,6 +85,78 @@ textarea {
   }
 }
 
+/* ============================================================
+   ACCESSIBILITY FOCUS STATES (WCAG 2.1 / 2.2 AA & AAA COMPLIANCE)
+   High-contrast, non-interfering outlines for keyboard navigation
+   ============================================================ */
+
+:focus {
+  outline: none; /* remove default browser halo for mouse users */
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--secondary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.25);
+  transition: outline-offset 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* LIGHT MODE: High-contrast deep indigo (#3730A3 / #4338CA) achieving > 8.5:1 contrast against #F8FAFF */
+[data-theme="light"] :focus-visible {
+  outline: 2.5px solid #3730A3 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(55, 48, 163, 0.28) !important;
+}
+
+/* Nav & Interactive Focus Refinements */
+.nav-links a:focus-visible,
+.nav-logo:focus-visible,
+.nav-resume:focus-visible,
+.nav-cta:focus-visible,
+.theme-toggle:focus-visible,
+.nav-burger:focus-visible,
+.btn:focus-visible,
+.btn-advanced:focus-visible,
+.btn-workflow:focus-visible,
+.project-card:focus-visible,
+.pipeline-stage:focus-visible,
+.fork-branch:focus-visible,
+.workflow-modal-close:focus-visible {
+  outline-offset: 3px;
+}
+
+.theme-toggle:focus-visible,
+.nav-resume:focus-visible,
+.nav-cta:focus-visible,
+.tool-chip:focus-visible,
+.about-chip:focus-visible {
+  border-radius: 100px;
+}
+
+[data-theme="light"] .nav-links a:focus-visible {
+  color: #1e1b4b;
+  outline-color: #3730A3 !important;
+}
+
+[data-theme="light"] .theme-toggle:focus-visible,
+[data-theme="light"] .nav-resume:focus-visible,
+[data-theme="light"] .nav-cta:focus-visible,
+[data-theme="light"] .btn:focus-visible {
+  border-color: #3730A3;
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: 1px;
+}
+
+[data-theme="light"] .form-group input:focus-visible,
+[data-theme="light"] .form-group textarea:focus-visible {
+  outline: 2.5px solid #3730A3 !important;
+  border-color: #3730A3;
+}
+
 /* ======================== Light-mode token overrides for workflow UI ======================== */
 
 [data-theme="light"] .workflow-modal {

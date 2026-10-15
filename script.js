@@ -1135,4 +1135,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   })();
 
+  /* ---------------------------------------------------------
+     20. PROJECT LIVE CV PREVIEWS HUD TOGGLE
+  --------------------------------------------------------- */
+  (function cvPreviewToggles() {
+    const viewports = document.querySelectorAll('.project-preview-viewport');
+    viewports.forEach(viewport => {
+      const toggleBtn = viewport.querySelector('.preview-hud-toggle');
+      if (!toggleBtn) return;
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOff = viewport.classList.toggle('is-hud-off');
+        const span = toggleBtn.querySelector('span');
+        if (span) {
+          span.textContent = isOff ? 'Raw Feed' : 'AI Layer';
+        }
+        toggleBtn.setAttribute('aria-pressed', (!isOff).toString());
+      });
+    });
+  })();
+
 });
+
