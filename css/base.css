@@ -750,18 +750,18 @@ textarea {
 }
 
 /* Automatically add external link icon to text links */
-a[target="_blank"]:not(.social-icon):not(.project-link):not(.contact-info-item)::after {
+a[target="_blank"]:not(.social-icon):not(.project-link):not(.contact-info-item):not(.btn-advanced):not(.btn)::after {
   content: " ↗";
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.85em;
   font-weight: 600;
   margin-left: 3px;
-  opacity: 0.6;
+  opacity: 0.75;
   transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
 }
 
-a[target="_blank"]:not(.social-icon):not(.project-link):not(.contact-info-item):hover::after {
+a[target="_blank"]:not(.social-icon):not(.project-link):not(.contact-info-item):not(.btn-advanced):not(.btn):hover::after {
   transform: translate(2px, -2px);
   opacity: 1;
   color: var(--primary);

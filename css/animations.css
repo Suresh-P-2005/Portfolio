@@ -33,21 +33,25 @@
 
 .header-emoji {
   display: inline-block;
-  margin-right: 0.25rem;
+  margin-right: 0.35rem;
   transform-origin: bottom center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-.reveal-up.is-revealed .header-emoji {
-  animation: emoji-wave 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+.reveal-up.is-revealed .header-emoji,
+.section-title:hover .header-emoji,
+.header-emoji:hover {
+  animation: emoji-wave 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes emoji-wave {
-  0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
-  15% { transform: rotate(20deg) scale(1.1); opacity: 1; }
-  30% { transform: rotate(-15deg) scale(1.1); }
-  45% { transform: rotate(10deg) scale(1.1); }
-  60% { transform: rotate(-10deg) scale(1.1); }
-  75% { transform: rotate(5deg) scale(1.05); }
+  0% { transform: rotate(0deg) scale(0.85); opacity: 0.7; }
+  15% { transform: rotate(24deg) scale(1.15); opacity: 1; }
+  30% { transform: rotate(-18deg) scale(1.15); }
+  45% { transform: rotate(14deg) scale(1.1); }
+  60% { transform: rotate(-10deg) scale(1.05); }
+  75% { transform: rotate(6deg) scale(1.02); }
   100% { transform: rotate(0deg) scale(1); opacity: 1; }
 }
 
@@ -58,9 +62,12 @@
   display: inline-block;
   opacity: 0;
   max-width: 0;
+  overflow: hidden;
+  vertical-align: middle;
   transform: translateX(-10px) scale(0.5);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.35s ease, max-width 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin-right 0.3s ease;
   white-space: nowrap;
+  margin-right: 0;
 }
 
 /* Assign tech emojis based on child order to tool-chips */
@@ -70,14 +77,14 @@
 .tool-chip:nth-child(4n+4)::before { content: '🐍'; }
 
 /* Assign playful emojis to about-chips */
-.about-chip:nth-child(3n+1)::before { content: '🌍'; }
-.about-chip:nth-child(3n+2)::before { content: '👨‍🎓'; }
-.about-chip:nth-child(3n+3)::before { content: '🔥'; }
+.about-chip:nth-child(3n+1)::before { content: '📍'; }
+.about-chip:nth-child(3n+2)::before { content: '🎓'; }
+.about-chip:nth-child(3n+3)::before { content: '📝'; }
 
 /* Hover effect */
 .tool-chip:hover::before, .about-chip:hover::before {
   opacity: 1;
-  max-width: 24px;
+  max-width: 26px;
   transform: translateX(0) scale(1);
   margin-right: 6px;
 }
